@@ -1,0 +1,24 @@
+{
+    "log": {
+        "output": "log.log"
+    },
+    "http": {
+        "enabled": false,
+        "listen": ""
+    },
+    "redis": {
+        "addr": "",
+        "password": "",
+        "maxIdle": 10,
+        "db": 6
+    },
+    "applet": [{
+        "appName": "",
+        "appId": "",
+        "appSecret": "",
+        "token": "",
+        "aeskey": "",
+        "debug": false,
+        "actionAddres": ""
+    }]
+}

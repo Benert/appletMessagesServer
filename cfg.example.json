@@ -1,0 +1,24 @@
+{
+    "log": {
+        "output": "log.log"
+    },
+    "http": {
+        "enabled": true,
+        "listen": "localhost:6071"
+    },
+    "redis": {
+        "addr": "redis的连接地址",
+        "password": "redis的密码",
+        "maxIdle": 10,
+        "db": 6
+    },
+    "applet": [{
+        "appName": "小程序名字",
+        "appId": "小程序的appid",
+        "appSecret": "小程序的secret",
+        "token": "Token(令牌)",
+        "aeskey": "EncodingAESKey(消息加密密钥)",
+        "debug": true,
+        "actionAddres": "除去域名的地址，不用带/"
+    }]
+}

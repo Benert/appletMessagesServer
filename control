@@ -1,0 +1,94 @@
+#!/bin/bash
+
+
+app=appletMessagesServer
+conf=cfg.json
+pidfile=.pid
+logfile=log.log
+
+
+function check_pid() {
+    if [ -f $pidfile ];then
+        pid=`cat $pidfile`
+        if [ -n $pid ]; then
+            running=`ps -p $pid|grep -v "PID TTY" |wc -l`
+            return $running
+        fi
+    fi
+    return 0
+}
+
+
+function start() {
+    check_pid
+    running=$?
+    if [ $running -gt 0 ];then
+        echo -n "$app now is running already, pid="
+        cat $pidfile
+        return 1
+    fi
+
+    if ! [ -f $conf ];then
+        echo "Config file $conf doesn't exist, creating one."
+        cp cfg.example.json $conf
+    fi
+    nohup ./$app  &> err.log &
+    echo $! > $pidfile
+    echo "$app started..., pid=$!"
+
+    sleep 1
+    check_pid
+    running=$?
+    if [ $running -gt 0 ];then
+    	echo "OK "
+    else
+    	echo "Failed"
+    fi
+}
+
+function stop() {
+	check_pid
+    running=$?
+    if [ $running -gt 0 ];then
+        pid=`cat $pidfile`
+
+        kill $pid
+        echo "$app stoped..."
+        rm $pidfile
+    else
+        echo "$app already stoped..."
+    fi
+}
+
+function restart() {
+    stop
+    sleep 10
+    start
+}
+
+
+
+function tailf() {
+    tail -f $logfile
+}
+
+
+
+
+function help() {
+    echo "$0 start|stop|restart|tail"
+}
+
+if [ "$1" == "" ]; then
+    help
+elif [ "$1" == "stop" ];then
+    stop
+elif [ "$1" == "start" ];then
+    start
+elif [ "$1" == "restart" ];then
+    restart
+elif [ "$1" == "tail" ];then
+    tailf
+else
+    help
+fi

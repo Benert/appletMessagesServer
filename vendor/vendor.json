@@ -1,0 +1,31 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "2UmMbNHc8FBr98mJFN1k8ISOIHk=",
+			"path": "github.com/garyburd/redigo/internal",
+			"revision": "569eae59ada904ea8db7a225c2b47165af08735a",
+			"revisionTime": "2018-04-04T16:07:26Z"
+		},
+		{
+			"checksumSHA1": "3kM5bMyfqvdCfgQdOb01CR1aA74=",
+			"path": "github.com/garyburd/redigo/redis",
+			"revision": "569eae59ada904ea8db7a225c2b47165af08735a",
+			"revisionTime": "2018-04-04T16:07:26Z"
+		},
+		{
+			"checksumSHA1": "CZ+YwknITooEoAcj5JNexPrIEsA=",
+			"path": "github.com/imroc/log",
+			"revision": "0c5f50a587ef8d436071b6eebd1cc2a5f13dcea8",
+			"revisionTime": "2017-03-15T09:18:43Z"
+		},
+		{
+			"checksumSHA1": "WqqGJl+RmXY4tKyNYLkcD/YkjDI=",
+			"path": "github.com/toolkits/net/httplib",
+			"revision": "d60cc35d68b7c7a319278619e961d8208d667277",
+			"revisionTime": "2016-01-28T03:05:46Z"
+		}
+	],
+	"rootPath": "appletMessagesServer"
+}
